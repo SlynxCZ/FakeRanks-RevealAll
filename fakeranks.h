@@ -30,6 +30,17 @@ public:
 	bool IsInitMessage(void) const override { return m_bInitMessage; }
 	const CPlayerBitVec& GetRecipients(void) const { return m_Recipients; }
 
+	int GetRecipientCountNew() const
+	{
+		int count = 0;
+		for (int i = 0; i < ABSOLUTE_PLAYER_LIMIT; ++i)
+		{
+			if (m_Recipients.Get(i))
+				++count;
+		}
+		return count;
+	}
+
 	void AddRecipient(CPlayerSlot slot)
 	{
 		if (slot.Get() >= 0 && slot.Get() < ABSOLUTE_PLAYER_LIMIT)

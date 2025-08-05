@@ -115,7 +115,7 @@ void FakeRank_RevealAll::Hook_GameFrame(bool simulating, bool bFirstTick, bool b
 		iOldButtons[i] = iButtons;
 	}
 
-	if(filter.GetRecipientCount() > 0)
+	if(filter.GetRecipientCountNew() > 0)
 	{
 		INetworkMessageInternal *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("CCSUsrMsg_ServerRankRevealAll");
 		CNetMessage *msg = netmsg->AllocateMessage();
